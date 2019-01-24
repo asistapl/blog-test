@@ -8,15 +8,7 @@ module.exports = {
     'gatsby-plugin-webpack-size',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sitemap',
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
     'gatsby-plugin-emotion',
-    {
-      resolve: 'gatsby-plugin-canonical-urls',
-      options: {
-        siteUrl: siteConfig.siteUrl,
-      },
-    },
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
@@ -39,25 +31,8 @@ module.exports = {
         name: 'assets',
       },
     },
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        name: siteConfig.siteName,
-        short_name: siteConfig.shortSiteName,
-        start_url: siteConfig.startUrl,
-        background_color: theme.colors.appScreenBackgroundColor,
-        theme_color: theme.colors.themeColor,
-        display: 'minimal-ui',
-        icon: 'src/assets/favicon.png',
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-nprogress',
-      options: {
-        color: theme.colors.progressBar,
-        showSpinner: false,
-      },
-    },
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-transformer-remark',
       options: {
@@ -72,6 +47,8 @@ module.exports = {
             resolve: 'gatsby-remark-images',
             options: {
               maxWidth: theme.maxTextContainerWidth,
+              quality: 80,
+              withWebp: true,
             },
           },
           {
@@ -81,6 +58,31 @@ module.exports = {
             },
           },
         ],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-nprogress',
+      options: {
+        color: theme.colors.progressBar,
+        showSpinner: false,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-canonical-urls',
+      options: {
+        siteUrl: siteConfig.siteUrl,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: siteConfig.siteName,
+        short_name: siteConfig.shortSiteName,
+        start_url: siteConfig.startUrl,
+        background_color: theme.colors.appScreenBackgroundColor,
+        theme_color: theme.colors.themeColor,
+        display: 'minimal-ui',
+        icon: 'src/assets/favicon.png',
       },
     },
     // 'gatsby-plugin-layout',

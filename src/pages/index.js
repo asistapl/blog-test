@@ -12,8 +12,8 @@ export const query = graphql`
   query {
     placeholderImage: file(relativePath: { eq: "gatsby-astronaut.png" }) {
       childImageSharp {
-        fluid(maxWidth: 300) {
-          ...GatsbyImageSharpFluid
+        fluid(maxWidth: 300, quality: 80) {
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
