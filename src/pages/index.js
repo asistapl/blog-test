@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 
 import SEO from '../components/SEO'
-import Layout from '../components/Layout'
+import Layout from '../layouts/index'
 import Container from '../components/Container'
 import Space from '../components/Space'
 import Image from '../components/Image'

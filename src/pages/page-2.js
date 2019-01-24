@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 
 import SEO from '../components/SEO'
-import Layout from '../components/Layout'
+import Layout from '../layouts/index'
 import Container from '../components/Container'
 import Space from '../components/Space'
 import { Headline, Paragraph } from '../styles/typography'

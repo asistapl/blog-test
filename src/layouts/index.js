@@ -7,7 +7,7 @@ import globalStyles from '../styles/globalStyles'
 import { fontPreloads, fontStyleSheets } from '../styles/fonts'
 import { rem } from '../styles/tools'
 
-import Container from './Container'
+import Container from '../components/Container'
 import { Headline } from '../styles/typography'
 
 const Navbar = ({ ...props }) => (
