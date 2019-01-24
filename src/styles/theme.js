@@ -60,5 +60,9 @@ module.exports = {
     xxl: 128,
   },
 
+  maxPageContainerWidth: 1600,
+
+  maxTextContainerWidth: 1000,
+
   gap: 20,
 }

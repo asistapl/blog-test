@@ -18,10 +18,25 @@ module.exports = {
       },
     },
     {
+      // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'assets',
+        path: `${__dirname}/static/uploads`,
+        name: 'uploads',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/pages`,
+        name: 'pages',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         path: `${__dirname}/src/assets`,
+        name: 'assets',
       },
     },
     {
@@ -44,14 +59,46 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-netlify',
+      resolve: 'gatsby-transformer-remark',
       options: {
-        allPageHeaders: fontPreloadHeaders,
+        plugins: [
+          {
+            resolve: 'gatsby-remark-relative-images',
+            options: {
+              name: 'uploads',
+            },
+          },
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: theme.maxTextContainerWidth,
+            },
+          },
+          {
+            resolve: 'gatsby-remark-copy-linked-files',
+            options: {
+              destinationDir: 'static',
+            },
+          },
+        ],
       },
     },
     // 'gatsby-plugin-layout',
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',
+    {
+      resolve: 'gatsby-plugin-netlify-cms',
+      options: {
+        modulePath: `${__dirname}/src/cms/cms.js`,
+      },
+    },
+    {
+      // make sure to keep it last in the array
+      resolve: 'gatsby-plugin-netlify',
+      options: {
+        allPageHeaders: fontPreloadHeaders,
+      },
+    },
   ],
 }

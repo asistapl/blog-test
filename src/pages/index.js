@@ -1,11 +1,11 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
 
 import SEO from '../components/SEO'
 import Layout from '../layouts/index'
 import Container from '../components/Container'
 import Space from '../components/Space'
-import Image from '../components/Image'
 import { Headline, Paragraph } from '../styles/typography'
 
 export const query = graphql`
@@ -20,7 +20,7 @@ export const query = graphql`
   }
 `
 
-const IndexPage = () => (
+const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home" />
     <Container>
@@ -30,11 +30,8 @@ const IndexPage = () => (
       <Paragraph>Welcome to your new Gatsby site.</Paragraph>
       <Paragraph>Now go build something great.</Paragraph>
       <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-        <Image />
+        <Img fluid={data.placeholderImage.childImageSharp.fluid} />
       </div>
-      <Paragraph as={Link} to="/page-2/">
-        Go to page 2
-      </Paragraph>
       <Space y={50} />
     </Container>
   </Layout>
