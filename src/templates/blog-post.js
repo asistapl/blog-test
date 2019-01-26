@@ -1,4 +1,5 @@
-import React from 'react'
+/** @jsx jsx */
+import { jsx } from '@emotion/core'
 import PropTypes from 'prop-types'
 import { graphql, Link } from 'gatsby'
 import { kebabCase } from 'lodash'
@@ -58,6 +59,7 @@ export const BlogPostTemplate = ({
 
 BlogPostTemplate.propTypes = {
   title: PropTypes.string,
+  date: PropTypes.object,
   description: PropTypes.string,
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,

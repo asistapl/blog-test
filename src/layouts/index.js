@@ -1,13 +1,10 @@
 import React from 'react'
-import Helmet from 'react-helmet'
 import { Link } from 'gatsby'
-import { Global } from '@emotion/core'
 
-import globalStyles from '../styles/globalStyles'
 import theme from '../styles/theme'
-import { fontPreloads, fontStyleSheets } from '../styles/fonts'
 import { rem } from '../styles/tools'
 
+import Meta from '../components/Meta'
 import Container from '../components/Container'
 import { Headline, activeLinkStyles } from '../styles/typography'
 
@@ -85,19 +82,7 @@ const Footer = ({ ...props }) => (
 
 const Layout = ({ children }) => (
   <div css={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-    <Helmet
-      link={[
-        ...fontPreloads,
-        ...fontStyleSheets,
-        {
-          type: 'text/plain',
-          rel: 'author',
-          href: '/humans.txt',
-        },
-      ]}
-    />
-    <Global styles={globalStyles} />
-
+    <Meta />
     <Navbar />
     <main css={{ flexGrow: 1 }}>{children}</main>
     <Footer />
