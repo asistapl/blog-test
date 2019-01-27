@@ -22,8 +22,8 @@ export default class IndexPage extends React.Component {
         <Container as="section" narrow>
           <Space y={100} />
           <Headline as="h1">Latest Stories</Headline>
-          <Space y={50} />
-          <ul css={{ display: 'grid', gridGap: rem(50) }}>
+          <Space y={60} />
+          <ul css={{ display: 'grid', gridGap: rem(60) }}>
             {posts.map(({ node: post }) => (
               <Post
                 as="li"

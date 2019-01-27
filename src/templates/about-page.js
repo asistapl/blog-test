@@ -17,7 +17,7 @@ export const AboutPageTemplate = ({
   <Container as="section" narrow>
     <Space y={100} />
     <Headline as="h2">{title}</Headline>
-    <Space y={50} />
+    <Space y={60} />
     <PageContent content={content} css={postStyles} />
     <Space y={100} />
   </Container>

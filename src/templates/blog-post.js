@@ -1,10 +1,9 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/core'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql, Link } from 'gatsby'
 import { kebabCase } from 'lodash'
 
-import { rem } from '../styles/tools'
+import { media, rem } from '../styles/tools'
 
 import SEO from '../components/SEO'
 import Layout from '../layouts/index'
@@ -24,14 +23,24 @@ export const BlogPostTemplate = ({
   <Container as="section" narrow>
     <Space y={100} />
     <Headline as="h1">{title}</Headline>
-    <Paragraph as="small" css={{ fontSize: `${rem(14)} !important` }}>
+    <Paragraph
+      as="small"
+      css={{ fontSize: rem(14), [media.laptop]: { fontSize: rem(14) } }}
+    >
       {date}
     </Paragraph>
-    <Space y={20} />
-    <Paragraph>{description}</Paragraph>
-    <Space y={50} />
+    <Space y={30} />
+    <Paragraph
+      css={{
+        fontSize: rem(24),
+        [media.laptop]: { fontSize: rem(24), lineHeight: 1.6 },
+      }}
+    >
+      {description}
+    </Paragraph>
+    <Space y={30} />
     <PostContent content={content} css={postStyles} />
-    <Space y={50} />
+    <Space y={60} />
     {tags && tags.length && (
       <div>
         <Headline as="h4">Tags</Headline>
@@ -59,7 +68,7 @@ export const BlogPostTemplate = ({
 
 BlogPostTemplate.propTypes = {
   title: PropTypes.string,
-  date: PropTypes.object,
+  date: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   description: PropTypes.string,
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
@@ -96,8 +105,8 @@ export const pageQuery = graphql`
       id
       html
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
         title
+        date(formatString: "MMMM DD, YYYY")
         description
         tags
       }

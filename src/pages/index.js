@@ -29,7 +29,8 @@ const IndexPage = ({ data }) => (
       <Space y={20} />
       <Paragraph>Welcome to your new Gatsby site.</Paragraph>
       <Paragraph>Now go build something great.</Paragraph>
-      <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
+      <Space y={20} />
+      <div style={{ maxWidth: 300 }}>
         <Img fluid={data.placeholderImage.childImageSharp.fluid} />
       </div>
       <Space y={50} />

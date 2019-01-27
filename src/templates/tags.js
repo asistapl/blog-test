@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 
 import { rem } from '../styles/tools'
 
@@ -8,6 +8,7 @@ import Layout from '../layouts/index'
 import Container from '../components/Container'
 import Space from '../components/Space'
 import Post from '../components/Post'
+import Link from '../components/Link'
 import { Paragraph } from '../styles/typography'
 
 class TagPage extends React.Component {
@@ -38,7 +39,7 @@ class TagPage extends React.Component {
               />
             ))}
           </ul>
-          <Space y={50} />
+          <Space y={60} />
           <Paragraph>
             <Link to="/tags/">Browse all tags</Link>
           </Paragraph>

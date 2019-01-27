@@ -20,13 +20,9 @@ export const paragraph = {
 }
 
 export const postStyles = {
-  'h1, h2, h3, h4, h5, h6': {
-    marginBottom: rem(20),
-    ...headline,
-    '&:not(:first-child)': {
-      marginTop: rem(50),
-    },
-  },
+  '> * + *': { marginTop: rem(30) },
+  '* + h1, * + h2, * + h3, * + h4, * + h5, * + h6': { marginTop: rem(60) },
+  'h1, h2, h3, h4, h5, h6': headline,
   h1: { fontSize: rem(24) },
   h2: { fontSize: rem(20) },
   'h3, h4, h5, h6': { fontSize: rem(18) },
@@ -50,9 +46,6 @@ export const activeLinkStyles = {
   textDecoration: 'underline',
 }
 
-export const Headline = styled.span(
-  headline,
-  ({ light }) => light && { color: theme.colors.white }
-)
+export const Headline = styled.span(headline)
 
 export const Paragraph = styled.p(paragraph)

@@ -1,11 +1,11 @@
 import React from 'react'
-import { Link } from 'gatsby'
 
 import theme from '../styles/theme'
 import { rem } from '../styles/tools'
 
 import Meta from '../components/Meta'
 import Container from '../components/Container'
+import Link from '../components/Link'
 import { Headline, activeLinkStyles } from '../styles/typography'
 
 const Navbar = ({ ...props }) => (
@@ -21,7 +21,7 @@ const Navbar = ({ ...props }) => (
     {...props}
   >
     <Container css={{ display: 'flex', alignItems: 'center' }}>
-      <Headline light as={Link} to="/">
+      <Headline as={Link} to="/">
         Logo
       </Headline>
       <nav css={{ marginLeft: 'auto' }}>
@@ -37,18 +37,12 @@ const Navbar = ({ ...props }) => (
             </Link>
           </li>
           <li>
-            <Link
-              to="/blog/"
-              activeStyle={activeLinkStyles}
-              getProps={({ isPartiallyCurrent }) =>
-                isPartiallyCurrent ? { style: activeLinkStyles } : null
-              }
-            >
+            <Link to="/blog/" partial activeStyle={activeLinkStyles}>
               Blog
             </Link>
           </li>
           <li>
-            <Link to="/tags/" activeStyle={activeLinkStyles}>
+            <Link to="/tags/" partial activeStyle={activeLinkStyles}>
               Tags
             </Link>
           </li>

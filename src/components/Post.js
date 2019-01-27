@@ -1,8 +1,8 @@
 import React from 'react'
-import { Link } from 'gatsby'
 
 import { rem } from '../styles/tools'
 
+import Link from './Link'
 import Space from './Space'
 import { Headline, Paragraph } from '../styles/typography'
 
